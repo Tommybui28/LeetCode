@@ -121,25 +121,27 @@ class Solution(object):
 ## Part 6 — Understanding the LeetCode template
 
 ```python
-class Solution(object):
-    def gcdValues(self, nums, queries):
-        """
-        :type nums: List[int]
-        :type queries: List[int]
-        :rtype: List[int]
-        """
+class Solution:
+    def gcdValues(self, nums: List[int], queries: List[int]) -> List
 ```
 
 LeetCode **calls your function for you** behind the scenes, so it needs a specific shape.
 
 | Part | What it means |
 |---|---|
-| `class Solution(object):` | A container. Must be named `Solution`. `(object)` is old style — ignore it. |
+| `class Solution:` | A container. Must be named `Solution`. |
 | `def gcdValues(...)` | The function LeetCode calls. **Don't rename it.** |
 | `self` | Required first word for methods in a class. You won't use it — just leave it. |
-| `nums, queries` | The **inputs** LeetCode fills in automatically. |
-| `""" :type ... """` | A note telling you the input/output types. Does nothing when run. |
-| `:rtype: List[int]` | You must **return** a list of integers. |
+| `nums: List[int]` | The input `nums` is a **list of integers**. |
+| `queries: List[int]` | The input `queries` is a **list of integers**. |
+| `-> List[int]` | You must **return** a list of integers. |
+
+### Type hints (the `: List[int]` and `-> List[int]` bits)
+These are **type hints** — they tell you (and other readers) what type each input is and what the function returns:
+- `nums: List[int]` → "`nums` is a list of ints"
+- `-> List[int]` → "this function returns a list of ints"
+
+They're just **notes for humans** — Python doesn't enforce them, and your code runs the same with or without them. LeetCode's Python3 template includes them because they're the modern, readable style.
 
 ### The #1 beginner gotcha 🎯
 > **`return` the answer — never `print` it.** LeetCode reads what you `return`. If you `print`, it sees "nothing returned" and marks it wrong.
@@ -148,7 +150,7 @@ LeetCode **calls your function for you** behind the scenes, so it needs a specif
 - `class Solution` = the form (must use theirs).
 - `def gcdValues(self, nums, queries)` = the labelled input boxes.
 - `return` = handing the completed form back.
-
+  
 ---
 
 ## Part 7 — Python 2 vs Python 3
